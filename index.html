@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Дизайн Человека — Анастасия Волокитина</title>
     <style>
-        /* Базовый сброс и плавность как в Apple */
+        /* Скандинавский минимализм: светлый фон, тонкий шрифт, древесные и фисташковые акценты */
         * {
             margin: 0;
             padding: 0;
@@ -13,15 +13,19 @@
         }
 
         :root {
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0c;
-            --bg-elevated: #161618;
-            --text-primary: #f5f5f7;
-            --text-secondary: #a1a1a6;
-            --text-tertiary: #6e6e73;
-            --accent-color: #2997ff; /* фирменный синий Apple для ссылок и акцентов */
-            --border-color: rgba(255, 255, 255, 0.12);
-            --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --bg-main: #faf9f7;          /* тёплый белый, как скандинавские стены */
+            --bg-white: #ffffff;          /* чисто белый для карточек */
+            --bg-wood: #e9e2d6;           /* светло-деревянная вставка */
+            --bg-pistachio: #e5f0e3;      /* мягкий фисташковый */
+            --bg-pistachio-light: #f2f8f0; /* очень светлый фисташковый */
+            --text-primary: #1d1d1f;       /* почти чёрный */
+            --text-secondary: #55555c;      /* серый тёплый */
+            --text-tertiary: #8e8e93;      /* светлый серый */
+            --accent-pistachio: #87a96b;    /* фисташковый тёмный */
+            --accent-pistachio-dark: #6b8a4e;
+            --border-soft: rgba(0, 0, 0, 0.06);
+            --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.03);
+            --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
         }
 
         html {
@@ -32,12 +36,12 @@
         }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-main);
             color: var(--text-primary);
             font-family: var(--font-main);
-            line-height: 1.5;
-            font-weight: 400;
-            letter-spacing: -0.01em;
+            font-weight: 300;              /* тонкий шрифт по умолчанию */
+            line-height: 1.55;
+            letter-spacing: 0.01em;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -45,7 +49,6 @@
             padding: 0 24px;
         }
 
-        /* Основной контейнер с максимальной шириной как на сайте Apple */
         .main-container {
             max-width: 980px;
             width: 100%;
@@ -53,90 +56,100 @@
             padding: 60px 0 80px;
         }
 
-        /* Типографика в стиле крупных заголовков */
+        /* Заголовки с тонким весом и воздухом */
         h1 {
-            font-size: 48px;
+            font-size: 52px;
             line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -0.03em;
+            font-weight: 250;              /* очень тонкий */
+            letter-spacing: -0.02em;
             margin-bottom: 16px;
             color: var(--text-primary);
             text-align: center;
         }
 
         h2 {
-            font-size: 32px;
+            font-size: 30px;
             line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-weight: 300;
+            letter-spacing: -0.01em;
             margin-bottom: 20px;
             color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
-            margin-top: 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-top: 10px;
         }
 
         h3 {
-            font-size: 21px;
+            font-size: 20px;
             line-height: 1.3;
-            font-weight: 600;
+            font-weight: 400;
             letter-spacing: -0.01em;
             margin-bottom: 12px;
             color: var(--text-secondary);
         }
 
-        /* Карточки блоков — тёмные поверхности с лёгкой рамкой */
+        /* Карточки как белые деревянные панели с тонкими рамками */
         .card {
-            background-color: var(--bg-secondary);
-            border-radius: 18px;
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-white);
+            border-radius: 20px;
+            border: 1px solid var(--border-soft);
             padding: 28px 28px;
             margin-bottom: 24px;
-            transition: background-color 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
-            background-color: var(--bg-elevated);
+        /* Вставка под дерево — тонкая полоска или блок */
+        .card-wood {
+            background-color: var(--bg-wood);
+            border: none;
+            box-shadow: none;
+            border-radius: 24px;
+            background-image: repeating-linear-gradient(45deg, rgba(139, 119, 90, 0.05) 0px, rgba(139, 119, 90, 0.05) 1px, transparent 1px, transparent 10px);
         }
 
-        .card-subtle {
-            background-color: transparent;
-            border: 1px solid var(--border-color);
+        /* Фисташковая вставка — мягкая подложка */
+        .card-pistachio {
+            background-color: var(--bg-pistachio);
+            border: none;
+            box-shadow: none;
+            border-radius: 24px;
         }
 
-        /* Текст и акценты */
-        .section-subtitle {
-            font-size: 17px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            text-align: center;
+        .card-pistachio-light {
+            background-color: var(--bg-pistachio-light);
+            border: none;
+            box-shadow: none;
         }
 
         p {
             margin-bottom: 16px;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 300;
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .small-note {
             font-size: 14px;
             color: var(--text-tertiary);
+            font-weight: 300;
             margin-top: 12px;
             margin-bottom: 0;
-            letter-spacing: 0.01em;
         }
 
         .highlight {
-            color: var(--accent-color);
-            font-weight: 500;
+            color: var(--accent-pistachio-dark);
+            font-weight: 400;
         }
 
         ul, ol {
             padding-left: 24px;
             margin-bottom: 16px;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 300;
             line-height: 1.6;
         }
 
@@ -144,7 +157,6 @@
             margin-bottom: 12px;
         }
 
-        /* Список определений для центров и ворот */
         .definition-list {
             margin-bottom: 20px;
         }
@@ -154,7 +166,7 @@
             flex-wrap: wrap;
             margin-bottom: 16px;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         }
         .definition-item:last-child {
             border-bottom: none;
@@ -163,7 +175,7 @@
         }
 
         .definition-term {
-            font-weight: 600;
+            font-weight: 400;
             color: var(--text-primary);
             width: 180px;
             min-width: 180px;
@@ -173,41 +185,68 @@
         .definition-desc {
             flex: 1;
             color: var(--text-secondary);
+            font-weight: 300;
         }
 
-        /* Кнопка-ссылка в стиле Apple (если нужна) */
-        .apple-button {
+        .divider {
+            border: 0;
+            height: 1px;
+            background: var(--border-soft);
+            margin: 30px 0;
+        }
+
+        /* Декоративные элементы в виде "деревянных" брусков или фисташковых точек */
+        .wood-accent {
             display: inline-block;
-            background-color: var(--accent-color);
+            width: 24px;
+            height: 4px;
+            background-color: #c2b2a0;
+            border-radius: 2px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .pistachio-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-pistachio);
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* Ссылки или акценты */
+        .button-pistachio {
+            display: inline-block;
+            background-color: var(--accent-pistachio);
             color: #ffffff;
             border-radius: 980px;
             padding: 12px 28px;
-            font-size: 17px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 300;
             text-decoration: none;
-            letter-spacing: -0.01em;
+            letter-spacing: 0.02em;
             transition: background-color 0.2s ease, opacity 0.2s ease;
             margin-top: 8px;
             border: none;
             cursor: pointer;
         }
-        .apple-button:hover {
-            background-color: #0077ed;
+        .button-pistachio:hover {
+            background-color: var(--accent-pistachio-dark);
             opacity: 0.9;
         }
-        .apple-button:active {
-            opacity: 0.7;
+
+        /* Блок с выводом — фисташковая вставка */
+        .conclusion-block {
+            background-color: var(--bg-pistachio);
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 10px;
+            border: 1px solid rgba(135, 169, 107, 0.2);
         }
 
-        /* Разделитель для чистоты структуры */
-        .divider {
-            border: 0;
-            height: 1px;
-            background: var(--border-color);
-            margin: 30px 0;
-        }
-
-        /* Адаптивность под мобильные */
+        /* Адаптивность */
         @media (max-width: 734px) {
             body {
                 padding: 0 16px;
@@ -216,7 +255,8 @@
                 padding: 40px 0 60px;
             }
             h1 {
-                font-size: 36px;
+                font-size: 38px;
+                font-weight: 250;
             }
             h2 {
                 font-size: 26px;
@@ -233,26 +273,31 @@
                 min-width: 100%;
                 margin-bottom: 6px;
             }
+            .conclusion-block {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="main-container">
-        <!-- Заголовок как в приложении Apple -->
-        <h1>Дизайн Человека</h1>
-        <div class="section-subtitle">Анастасия Волокитина, 05.11.2004, Магадан</div>
-
-        <!-- ВСТУПИТЕЛЬНЫЙ БЛОК С УТОЧНЕНИЕМ -->
-        <div class="card" style="border-color: #3a3a3c; background-color: #0d0d0f;">
-            <h3 style="margin-bottom: 8px; color: #f5f5f7;">УТОЧНЕНИЕ ПО ВОРОТАМ СОЛНЦА</h3>
-            <p style="margin-bottom: 8px; color: #d1d1d6;">Это критически важный момент. 5 ноября Солнце находится в переходной зоне между 35-ми и 36-ми Воротами.</p>
-            <p style="margin-bottom: 8px; color: #d1d1d6;"><span class="highlight">Расчет в 06:15 UTC:</span> Солнце находится в <strong>35-х Воротах, 6-я линия</strong>.</p>
-            <p style="margin-bottom: 0; color: #d1d1d6;">Это Ворота «Прогресса» (или «Перемен»). Жажда нового опыта, желание, чтобы жизнь была полна приключений и развития.</p>
-            <p class="small-note" style="color: #8e8e93;">Примечание: В некоторых эфемеридах при округлении до секунд это могут быть 36-е Ворота «Кризиса» (эмоциональная жажда нового). Но так как у вас открытый Эмоциональный центр, а 35-е ворота входят в Горловой центр, принимаем <strong>35-е Ворота</strong>.</p>
+        <!-- Заголовок в скандинавском духе -->
+        <h1 style="margin-bottom: 8px;">Дизайн Человека</h1>
+        <div style="text-align: center; font-size: 18px; font-weight: 300; color: var(--text-tertiary); margin-bottom: 40px;">
+            <span class="wood-accent"></span>Анастасия Волокитина, 05.11.2004, Магадан<span class="wood-accent" style="margin-left: 8px;"></span>
         </div>
 
-        <!-- 1. ТИП МЕХАНИКИ -->
-        <h2>1. Тип механики: Генератор</h2>
+        <!-- Уточнение по воротам — деревянная вставка -->
+        <div class="card card-wood" style="padding: 24px 28px;">
+            <h3 style="margin-bottom: 8px; color: #3e3a35; font-weight: 400;">УТОЧНЕНИЕ ПО ВОРОТАМ СОЛНЦА</h3>
+            <p style="margin-bottom: 8px;">Это критически важный момент. 5 ноября Солнце находится в переходной зоне между 35-ми и 36-ми Воротами.</p>
+            <p style="margin-bottom: 8px;"><span class="highlight">Расчет в 06:15 UTC:</span> Солнце находится в <strong>35-х Воротах, 6-я линия</strong>.</p>
+            <p style="margin-bottom: 0;">Это Ворота «Прогресса» (или «Перемен»). Жажда нового опыта, желание, чтобы жизнь была полна приключений и развития.</p>
+            <p class="small-note">Примечание: В некоторых эфемеридах при округлении до секунд это могут быть 36-е Ворота «Кризиса» (эмоциональная жажда нового). Но так как у вас открытый Эмоциональный центр, а 35-е ворота входят в Горловой центр, принимаем <strong>35-е Ворота</strong>.</p>
+        </div>
+
+        <!-- 1. ТИП -->
+        <h2><span class="pistachio-dot"></span>1. Тип механики: Генератор</h2>
         <div class="card">
             <p><span class="highlight">Сакральный центр определен.</span></p>
             <p>Вы относитесь к самому распространенному типу людей (около 70% населения). Ваша аура — <strong>открытая и обволакивающая</strong>.</p>
@@ -261,15 +306,15 @@
         </div>
 
         <!-- 2. СТРАТЕГИЯ -->
-        <h2>2. Стратегия: Ждать отклика</h2>
+        <h2><span class="pistachio-dot"></span>2. Стратегия: Ждать отклика</h2>
         <div class="card">
             <p>Вы не Манифестор, вам <strong>противопоказано</strong> проявлять инициативу в глобальных вопросах (начинать бизнес, звать на свидание, объявлять о решении), пока вас не спросили.</p>
             <p><strong>Механика успеха:</strong> Мир должен прийти к вам (задать вопрос, предложить вариант, создать ситуацию выбора). В этот момент ваш Сакральный центр издает звук (да/нет) или дает энергию/забирает её.</p>
             <p><strong>Как это ощущается:</strong> Если на предложение у вас внутри появляется подъем, тепло, желание немедленно встать и пойти — это «Ага». Если внутри все сжалось, навалилась усталость, вы захотели зевнуть — это «Неа».</p>
         </div>
 
-        <!-- 3. ВНУТРЕННИЙ АВТОРИТЕТ -->
-        <h2>3. Внутренний авторитет: Сакральный (чистый)</h2>
+        <!-- 3. АВТОРИТЕТ -->
+        <h2><span class="pistachio-dot"></span>3. Внутренний авторитет: Сакральный (чистый)</h2>
         <div class="card">
             <p>У вас <strong>НЕ определен</strong> центр Солнечного Сплетения (Эмоциональный).</p>
             <p><span class="highlight">Это очень важно: Вам нельзя принимать решения, полагаясь на эмоции!</span></p>
@@ -278,7 +323,7 @@
         </div>
 
         <!-- 4. ПРОФИЛЬ -->
-        <h2>4. Профиль: 4/6 (Оппортунист / Ролевая модель)</h2>
+        <h2><span class="pistachio-dot"></span>4. Профиль: 4/6 (Оппортунист / Ролевая модель)</h2>
         <div class="card">
             <p>Это сочетание двух линий личности (Сознательное 4) и дизайна (Подсознательное 6).</p>
             <div class="definition-list">
@@ -294,7 +339,7 @@
         </div>
 
         <!-- 5. ОПРЕДЕЛЕННОСТЬ -->
-        <h2>5. Определенность: Двойная (Split)</h2>
+        <h2><span class="pistachio-dot"></span>5. Определенность: Двойная (Split)</h2>
         <div class="card">
             <p>В вашем Бодиграфе активированные центры образуют два отдельных блока:</p>
             <p><strong>Блок №1:</strong> Корень → Селезенка → Сакрал.<br>
@@ -306,12 +351,12 @@
         </div>
 
         <!-- 6. ЦЕНТРЫ -->
-        <h2>6. Анализ центров</h2>
+        <h2><span class="pistachio-dot"></span>6. Анализ центров</h2>
         
         <h3 style="margin-top: 24px;">А) Определенные центры</h3>
         
         <div class="card">
-            <h3 style="color: #fff;">1. Сакральный центр (Красный, внизу справа)</h3>
+            <h3 style="color: #1d1d1f;">1. Сакральный центр (Красный, внизу справа)</h3>
             <p><strong>Ваша суперсила:</strong> Выносливость и жизненная сила. Вы можете работать до поздней ночи, если заняты любимым делом, и проснуться бодрой.</p>
             <p><strong>Ворота в центре:</strong></p>
             <ul>
@@ -323,7 +368,7 @@
         </div>
 
         <div class="card">
-            <h3 style="color: #fff;">2. Корневой центр (Коричневый, внизу по центру)</h3>
+            <h3 style="color: #1d1d1f;">2. Корневой центр (Коричневый, внизу по центру)</h3>
             <p><strong>Давление и Стресс:</strong> Вы созданы, чтобы справляться с давлением. Стресс вас не ломает, а подстегивает. Вы умеете заканчивать дела в срок (адреналиновый драйв).</p>
             <p><strong>Ворота:</strong></p>
             <ul>
@@ -333,68 +378,68 @@
         </div>
 
         <div class="card">
-            <h3 style="color: #fff;">3. Селезеночный центр (Треугольник слева)</h3>
+            <h3 style="color: #1d1d1f;">3. Селезеночный центр (Треугольник слева)</h3>
             <p><strong>Интуиция и Здоровье:</strong> Ваш дар — «чуйка» на опасность и безопасность в моменте. Вы можете мгновенно понимать, стоит ли доверять человеку или ситуации.</p>
             <p><strong>Важно:</strong> Это древний инстинкт. Он срабатывает <strong>ТОЛЬКО ОДИН РАЗ</strong> (в момент входа в ситуацию). Если вы не послушали первое «Ой, не нравится!» — дальше ум заглушит инстинкт.</p>
             <p><span class="highlight">48-е Ворота (Глубина):</span> Вам нужно время, чтобы найти решение, но оно будет гениальным.</p>
         </div>
 
         <div class="card">
-            <h3 style="color: #fff;">4. Центр Джи (Ромб в центре)</h3>
+            <h3 style="color: #1d1d1f;">4. Центр Джи (Ромб в центре)</h3>
             <p><strong>Направление и Любовь:</strong> У вас фиксированное ощущение «Я есть». Вас трудно сбить с толку в вопросах самоуважения. Вы знаете, куда идти по жизни в глобальном смысле (даже если ум сомневается).</p>
             <p><span class="highlight">10-е Ворота (Любовь к себе):</span> Это поведение, основанное на любви к себе. Если вы живете согласно своей природе — вы притягательны.</p>
             <p><span class="highlight">15-е Ворота (Крайности):</span> Вам свойственны ритмы: то вы активны, то нуждаетесь в покое. Вам надо уважать свои циклы.</p>
         </div>
 
         <div class="card">
-            <h3 style="color: #fff;">5. Горловой центр (Квадрат сверху)</h3>
+            <h3 style="color: #1d1d1f;">5. Горловой центр (Квадрат сверху)</h3>
             <p><strong>Голос и Действие:</strong> Так как у вас определено Горло, вы умеете говорить так, что вас слушают. Но так как вы Генератор, ваш голос раскрывается лучше всего в моменте ответа (когда вас спросили).</p>
             <p><span class="highlight">35-е Ворота (Прогресс):</span> Это ваша тема жизни на этом воплощении. Жажда эмоционального опыта и перемен. Вам скучно, если жизнь становится рутиной. Вам нужен прогресс.</p>
         </div>
 
         <h3 style="margin-top: 32px;">Б) Открытые (белые) центры</h3>
         
-        <div class="card card-subtle">
-            <h3 style="color: #fff;">1. Теменной (Верхний)</h3>
+        <div class="card card-pistachio-light">
+            <h3 style="color: #1d1d1f;">1. Теменной (Верхний)</h3>
             <p><strong>Проблема:</strong> Вы впитываете чужие вопросы. Вам кажется, что вы должны решать загадки мироздания или отвечать на вопросы, которые на самом деле не ваши.</p>
             <p><strong>Совет:</strong> Перестаньте искать ответы на вопросы «Зачем я живу?», если они приносят страдания. Ваша задача — отвечать на конкретные запросы жизни, а не на философские пустоты.</p>
         </div>
 
-        <div class="card card-subtle">
-            <h3 style="color: #fff;">2. Аджна (Четвертый сверху)</h3>
+        <div class="card card-pistachio-light">
+            <h3 style="color: #1d1d1f;">2. Аджна (Четвертый сверху)</h3>
             <p><strong>Проблема:</strong> У вас нет фиксированного мнения. Вы можете думать одно утром, другое вечером. Вы легко заражаетесь чужими концепциями. Вы можете защищать точку зрения собеседника, не понимая, что она не ваша.</p>
             <p><strong>Совет:</strong> Ваш ум не является Авторитетом. Не пытайтесь все решить логически. Используйте ум, чтобы делиться знанием, а не принимать решения.</p>
         </div>
 
-        <div class="card card-subtle">
-            <h3 style="color: #fff;">3. Эмоциональный (Солнечное сплетение)</h3>
+        <div class="card card-pistachio-light">
+            <h3 style="color: #1d1d1f;">3. Эмоциональный (Солнечное сплетение)</h3>
             <p><strong>Проблема:</strong> Вы эмпат. Вы бессознательно считываете настроение толпы, партнера, семьи. Если вы вошли в комнату, где все злые, вам станет плохо физически, хотя причин нет.</p>
             <p><strong>Ловушка:</strong> Конфликт. В споре вы можете взорваться, потому что поймали волну гнева оппонента.</p>
             <p><strong>Совет:</strong> Если чувствуете эмоциональный шторм — выйдите в другую комнату, погуляйте в одиночестве. Через 5 минут эмоция уйдет, и вы поймете, что она была не ваша.</p>
         </div>
 
-        <div class="card card-subtle">
-            <h3 style="color: #fff;">4. Эго / Сердечный центр (Маленький справа)</h3>
+        <div class="card card-pistachio-light">
+            <h3 style="color: #1d1d1f;">4. Эго / Сердечный центр (Маленький справа)</h3>
             <p><strong>Проблема:</strong> Вам сложно конкурировать, просить повышения зарплаты, «продавать себя». Вам кажется неловким говорить «Я этого достойна». Вы не созданы для постоянной грызни за место под солнцем.</p>
             <p><strong>Совет:</strong> Никогда не работайте ради премий, регалий или похвалы. Работайте ради удовольствия. Материальное придет само через отклик.</p>
         </div>
 
         <!-- 7. КАНАЛЫ -->
-        <h2>7. Расшифровка каналов</h2>
+        <h2><span class="pistachio-dot"></span>7. Расшифровка каналов</h2>
         <div class="card">
-            <h3 style="color: #fff;">Канал 34-57 (Сила / Интуиция)</h3>
+            <h3 style="color: #1d1d1f;">Канал 34-57 (Сила / Интуиция)</h3>
             <p><em>Соединяет Сакрал и Селезенку.</em></p>
             <p><strong>Механика:</strong> Это канал «Архетип шамана/воина». Вы способны выживать в самых стрессовых ситуациях. У вас мощное тело, реагирующее инстинктивно. Это энергия человека, который способен услышать свой внутренний голос в гуще событий и действовать с невероятной физической силой.</p>
             <p><strong>В жизни:</strong> Вы часто делаете что-то, не думая, но попадаете в точку. Ваши инстинктивные телодвижения часто гениальны.</p>
             <hr class="divider">
-            <h3 style="color: #fff;">Канал 10-20 (Пробуждение / Следование за собой)</h3>
+            <h3 style="color: #1d1d1f;">Канал 10-20 (Пробуждение / Следование за собой)</h3>
             <p><em>Соединяет Центр Джи и Горло.</em></p>
             <p><strong>Механика:</strong> Это канал «Высшего Я» или «Осознанности». У вас есть способность жить моментом и проявлять свою истинную сущность через слова и поступки. Если вы следуете своей стратегии (ждете отклика), то ваши слова и действия идеально отражают то, кто вы есть.</p>
             <p><strong>В жизни:</strong> Вы можете быть очень убедительной, когда говорите о том, во что искренне верите. Это редкий дар самовыражения "здесь и сейчас".</p>
         </div>
 
         <!-- 8. ВОРОТА -->
-        <h2>8. Ключевые ворота и линии личности</h2>
+        <h2><span class="pistachio-dot"></span>8. Ключевые ворота и линии личности</h2>
         <div class="card">
             <div class="definition-item">
                 <div class="definition-term">Солнце (5.11.2004)</div>
@@ -411,7 +456,7 @@
         </div>
 
         <!-- 9. РЕКОМЕНДАЦИИ -->
-        <h2>9. Рекомендации для жизни</h2>
+        <h2><span class="pistachio-dot"></span>9. Рекомендации для жизни</h2>
         <div class="card">
             <ol style="list-style-type: decimal; margin-bottom: 0;">
                 <li><strong>Утренний ритуал:</strong> Проснувшись, не хватайте телефон. Прислушайтесь к телу. Хочет ли оно встать? Хочет ли пить? Это тренировка слышать Сакрал.</li>
@@ -422,16 +467,19 @@
             </ol>
         </div>
 
-        <!-- ВЫВОД -->
+        <!-- ВЫВОД - фисташковая вставка -->
         <h2 style="border-bottom: none; padding-bottom: 0;">Вывод по карте</h2>
-        <div class="card" style="background-color: #0d0d0f; border-color: #2c2c2e;">
-            <p style="font-size: 18px; font-weight: 500; margin-bottom: 0;">Вы — мощный генератор с интуицией (34-57) и даром самовыражения (10-20). Ваша главная задача в ближайшие 10 лет (до Сатурна) — экспериментировать (Линия 6) и находить то, что вам действительно нравится делать, не поддаваясь чужому давлению и эмоциям.</p>
+        <div class="conclusion-block">
+            <p style="font-size: 18px; font-weight: 350; margin-bottom: 0; color: #2b3a24;">Вы — мощный генератор с интуицией (34-57) и даром самовыражения (10-20). Ваша главная задача в ближайшие 10 лет (до Сатурна) — экспериментировать (Линия 6) и находить то, что вам действительно нравится делать, не поддаваясь чужому давлению и эмоциям.</p>
         </div>
 
-        <!-- Маленький футер в духе "спасибо за чтение" -->
-        <div style="text-align: center; margin-top: 40px; color: var(--text-tertiary); font-size: 14px; letter-spacing: 0.02em;">
+        <!-- Футер -->
+        <div style="text-align: center; margin-top: 40px; color: var(--text-tertiary); font-size: 14px; font-weight: 300; letter-spacing: 0.02em;">
             <span>Дизайн Человека · Анастасия Волокитина</span>
+            <span style="margin: 0 8px;">·</span>
+            <span style="color: var(--accent-pistachio);">🌿</span>
         </div>
     </div>
 </body>
 </html>
+```
